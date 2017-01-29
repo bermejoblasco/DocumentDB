@@ -1,0 +1,83 @@
+﻿@model todo.Models.Family
+
+<h2>View To-Do Item Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parents.FamilyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parents.FamilyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parents.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parents.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Children.FamilyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Children.FamilyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Children.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Children.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.City)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.County)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.County)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address.State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRegistered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRegistered)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,73 @@
+﻿@model System.Collections.Generic.IEnumerable<todo.Models.Family>
+@{
+    ViewBag.Title = "Family list members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Family list members</h2>
+
+<div class="row">
+
+    <form class="navbar-form navbar-left" action="/Family/Search" method="POST">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" name="Filter">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+    <div class="col-lg-12">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Parents)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Children)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsRegistered)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Parents.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => item.Children.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address.State)
+                        @Html.DisplayFor(modelItem => item.Address.County)
+                        @Html.DisplayFor(modelItem => item.Address.City)
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(x => item.IsRegistered)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-lg-12">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+</div>
